@@ -1,0 +1,13 @@
+<p><b> key: {{ key }} </b></p>
+<p>title: {{ title }}</p>
+content: {{ content }}
+<form action = "{% url 'view' key %}" method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Comment">
+
+</form>
+{% for c in comments %} 
+<p> {{c.content}} &nbsp; {{c.datetime_created}}</p>
+{% endfor %}
+
